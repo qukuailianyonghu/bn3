@@ -111,8 +111,8 @@ export default function MyProfile() {
   const initials = (profile?.full_name || user?.email || '?')[0].toUpperCase();
   const actionItems: ProfileAction[] = [
     { label: '订单', icon: ClipboardList, onClick: () => setShowOrders(true), tone: 'sand' },
-    { label: '行程', icon: Plane, onClick: () => setShowItineraries(true), tone: 'sand' },
-    // { label: '活动', icon: CalendarDays, onClick: () => setShowActivities(true), tone: 'peach' },
+    // { label: '行程', icon: Plane, onClick: () => setShowItineraries(true), tone: 'sand' },
+    { label: '活动', icon: CalendarDays, onClick: () => setShowActivities(true), tone: 'peach' },
     // { label: '心愿清单', icon: Heart, onClick: () => setShowWishList(true), tone: 'sand' },
     // { label: '老照片高清修复', icon: ImageIcon, onClick: () => undefined, tone: 'clay' },
     // { label: '生成旅行纪念册', icon: Album, onClick: () => undefined, tone: 'clay' },

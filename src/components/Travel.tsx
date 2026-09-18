@@ -360,10 +360,10 @@ export default function Travel() {
                           {busy ? '处理中…' : '立即报名'}
                         </button>
                       )}
-                      <button onClick={() => openThemeForm(theme)}
-                        className={`flex-1 py-2.5 rounded-xl text-white text-sm font-semibold bg-gradient-to-r ${theme.accent} flex items-center justify-center gap-1.5 shadow hover:opacity-90 transition-opacity`}>
-                        <Plane className="w-4 h-4" /> 规划行程 <ChevronRight className="w-4 h-4" />
-                      </button>
+                      {/*<button onClick={() => openThemeForm(theme)}*/}
+                      {/*  className={`flex-1 py-2.5 rounded-xl text-white text-sm font-semibold bg-gradient-to-r ${theme.accent} flex items-center justify-center gap-1.5 shadow hover:opacity-90 transition-opacity`}>*/}
+                      {/*  <Plane className="w-4 h-4" /> 规划行程 <ChevronRight className="w-4 h-4" />*/}
+                      {/*</button>*/}
                     </div>
                   </div>
                 </div>
@@ -402,11 +402,11 @@ export default function Travel() {
 
         {(tab === 'my' || tab === 'community') && (
           <>
-            {tab === 'my' && (
-              <button onClick={() => setShowForm(true)} className="w-full mb-5 bg-gradient-to-r from-oshiruco-500 to-oshiruco-600 hover:from-oshiruco-600 hover:to-oshiruco-700 text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition shadow-md shadow-oshiruco-500/20">
-                <Plus className="w-5 h-5" /> 规划新行程
-              </button>
-            )}
+            {/*{tab === 'my' && (*/}
+            {/*  <button onClick={() => setShowForm(true)} className="w-full mb-5 bg-gradient-to-r from-oshiruco-500 to-oshiruco-600 hover:from-oshiruco-600 hover:to-oshiruco-700 text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition shadow-md shadow-oshiruco-500/20">*/}
+            {/*    <Plus className="w-5 h-5" /> 规划新行程*/}
+            {/*  </button>*/}
+            {/*)}*/}
 
             {loading ? (
               <div className="space-y-4">{[...Array(3)].map((_, i) => <div key={i} className="h-36 bg-oshiruco-100 rounded-2xl animate-pulse" />)}</div>
@@ -509,10 +509,10 @@ export default function Travel() {
       {showForm && (
         <div className="fixed inset-0 bg-oshiruco-900/50 z-50 flex items-end">
           <div className="bg-white w-full rounded-t-3xl p-6 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-serif text-lg font-bold text-oshiruco-900">规划行程</h3>
-              <button onClick={() => { setShowForm(false); setSelectedTheme(null); }}><X className="w-6 h-6 text-oshiruco-400" /></button>
-            </div>
+            {/*<div className="flex items-center justify-between mb-2">*/}
+            {/*  <h3 className="font-serif text-lg font-bold text-oshiruco-900">规划行程</h3>*/}
+            {/*  <button onClick={() => { setShowForm(false); setSelectedTheme(null); }}><X className="w-6 h-6 text-oshiruco-400" /></button>*/}
+            {/*</div>*/}
             {selectedTheme && (
               <div className={`flex items-center gap-3 mb-4 px-3 py-2.5 rounded-xl border ${selectedTheme.border} bg-gradient-to-r ${selectedTheme.lightAccent}`}>
                 <span className="text-xl">{selectedTheme.icon}</span>
