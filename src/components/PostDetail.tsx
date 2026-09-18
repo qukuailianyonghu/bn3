@@ -76,17 +76,22 @@ export default function PostDetail({ post, liked, onLike, onClose }: Props) {
 
   const authorProfile = post.profiles as PostProfile | undefined;
 
+  const getImageUrl = (name: string) => {
+    return new URL(`../images/${name}`, import.meta.url).href;
+  };
+
   return (
     <div className="fixed inset-0 z-50 bg-white flex flex-col overflow-hidden animate-slide-up">
       {/* Scrollable content */}
       <div className="flex-1 overflow-y-auto">
         {/* Hero image */}
         <div className="relative">
-          {post.image_url ? (
-            <img src={post.image_url} alt={post.title} className="w-full h-72 object-cover" />
-          ) : (
-            <div className="w-full h-36 bg-gradient-to-r from-teal-500 to-emerald-500" />
-          )}
+          <img src={getImageUrl('d5.jpg')} alt={post.title} className="w-full h-72 object-cover" />
+          {/*{post.image_url ? (*/}
+          {/*  <img src={getImageUrl('d5.jpg')} alt={post.title} className="w-full h-72 object-cover" />*/}
+          {/*) : (*/}
+          {/*  <div className="w-full h-36 bg-gradient-to-r from-teal-500 to-emerald-500" />*/}
+          {/*)}*/}
           <button
             onClick={onClose}
             className="absolute top-12 left-4 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition"
@@ -119,7 +124,7 @@ export default function PostDetail({ post, liked, onLike, onClose }: Props) {
               title={user && user.id !== post.user_id ? `给 ${authorProfile?.full_name || '旅行者'} 发消息` : undefined}
             >
               {authorProfile?.avatar_url ? (
-                <img src={authorProfile.avatar_url} alt="" className="w-full h-full object-cover" />
+                <img src={getImageUrl(authorProfile.avatar_url)} alt="" className="w-full h-full object-cover" />
               ) : (
                 <span className="text-teal-700 font-bold text-lg">{authorProfile?.full_name?.[0] || '?'}</span>
               )}
