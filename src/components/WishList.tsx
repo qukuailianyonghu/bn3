@@ -1,7 +1,19 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
-import { ArrowLeft, Plus, Check, Trash2, Pencil, Heart, Sparkles, Baby, Briefcase, CloudSun } from 'lucide-react';
+import {
+  ArrowLeft,
+  Plus,
+  Check,
+  Trash2,
+  Pencil,
+  Heart,
+  Sparkles,
+  Baby,
+  Briefcase,
+  CloudSun,
+  BookOpen
+} from 'lucide-react';
 
 interface Wish {
   id: string;
@@ -216,21 +228,58 @@ export default function WishList({ onClose }: { onClose: () => void }) {
 
   const pageOffset = isSwiping ? touchDelta : 0;
 
+  const getImageUrl = (name: string) => {
+    return new URL(`../images/${name}`, import.meta.url).href;
+  };
+
   return (
     <div className="fixed inset-0 bg-oshiruco-50 z-50 overflow-y-auto">
       <div className="max-w-md mx-auto">
-        <header className="sticky top-0 bg-gradient-to-r from-oshiruco-600 to-oshiruco-700 text-white px-5 py-4 flex items-center gap-3 shadow-md z-10">
-          <button onClick={onClose} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center hover:bg-white/25 transition flex-shrink-0">
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-          <div className="flex items-center gap-2">
-            <Heart className="w-5 h-5" />
-            <h1 className="text-lg font-bold">我的心愿单</h1>
+        {/* Hero — warm sunset image with brown overlay */}
+        <section className="relative h-[260px] overflow-hidden">
+          <img src={getImageUrl('wish_top.jpg')} alt="人生记忆" className="absolute inset-0 h-full w-full object-cover" />
+          {/*<div className="absolute inset-0 bg-gradient-to-b from-[#3b2b25]/60 via-[#5e4030]/35 to-[#4c3327]/85" />*/}
+
+
+          <div className="relative z-10 px-6 pt-5 text-white">
+
+            <button onClick={onClose} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center hover:bg-white/25 transition flex-shrink-0">
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/15 backdrop-blur-sm">
+                <BookOpen className="h-6 w-6" strokeWidth={1.6} />
+              </div>
+              <div>
+                <p className="font-serif text-xl font-bold tracking-[0.16em]">伴龄</p>
+                <p className="text-[9px] uppercase tracking-[0.25em] text-white/80">BANLING</p>
+              </div>
+            </div>
+            <h1 className="mt-7 font-serif text-[27px] font-bold leading-tight tracking-wide">心愿清单</h1>
+            <p className="mt-2 text-sm tracking-wide text-white/90">把最想做的事与梦想<br/>--收藏，等待合适的时间去实现</p>
+            <div className="mt-5 h-0.5 w-10 bg-[#f5d6a1]" />
           </div>
-        </header>
+        </section>
+
+        {/*<header className="sticky top-0 bg-gradient-to-r from-oshiruco-600 to-oshiruco-700 text-white px-5 py-4 flex items-center gap-3 shadow-md z-10">*/}
+          {/*<button onClick={onClose} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center hover:bg-white/25 transition flex-shrink-0">*/}
+          {/*  <ArrowLeft className="w-5 h-5" />*/}
+          {/*</button>*/}
+          {/*<div className="flex items-center gap-2">*/}
+          {/*  <Heart className="w-5 h-5" />*/}
+          {/*  <h1 className="text-lg font-bold">我的心愿单</h1>*/}
+          {/*</div>*/}
+
+
+
+
+
+        {/*</header>*/}
 
         {/* Page tabs */}
-        <div className="px-5 pt-4">
+        <div className="px-5 pt-4 ">
+          {/*<img src={getImageUrl('wish_top.jpg')} alt="人生记忆" className="absolute inset-0 h-full w-full object-cover" />*/}
           <div className="flex bg-white rounded-2xl shadow-sm border border-oshiruco-100 p-1.5">
             {CATEGORIES.map((cat, i) => {
               const Icon = cat.icon;
