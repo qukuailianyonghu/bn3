@@ -248,16 +248,16 @@ export default function WishList({ onClose }: { onClose: () => void }) {
             </button>
 
             <div className="flex items-center gap-2">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/15 backdrop-blur-sm">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/15 backdrop-blur-sm text-black">
                 <BookOpen className="h-6 w-6" strokeWidth={1.6} />
               </div>
               <div>
-                <p className="font-serif text-xl font-bold tracking-[0.16em]">伴龄</p>
-                <p className="text-[9px] uppercase tracking-[0.25em] text-white/80">BANLING</p>
+                <p className="font-serif text-xl font-bold tracking-[0.16em] text-black">伴龄</p>
+                <p className="text-[9px] uppercase tracking-[0.25em] text-black">BANLING</p>
               </div>
             </div>
-            <h1 className="mt-7 font-serif text-[27px] font-bold leading-tight tracking-wide">心愿清单</h1>
-            <p className="mt-2 text-sm tracking-wide text-white/90">把最想做的事与梦想<br/>--收藏，等待合适的时间去实现</p>
+            <h1 className="mt-5 font-serif text-[27px] font-bold leading-tight tracking-wide text-black">心愿清单</h1>
+            <p className="mt-5 text-sm tracking-wide text-black">把最想做的事与梦想<br/>--收藏，等待合适的时间去实现</p>
             <div className="mt-5 h-0.5 w-10 bg-[#f5d6a1]" />
           </div>
         </section>
