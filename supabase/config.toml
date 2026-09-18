@@ -1,0 +1,3 @@
+[functions.life-memoir-chat]
+verify_jwt = true
+entrypoint = "./functions/life-memoir-chat/index.ts"
