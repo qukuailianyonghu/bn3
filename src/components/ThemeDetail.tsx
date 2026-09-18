@@ -115,7 +115,7 @@ export default function ThemeDetail({ theme, onClose, onPlanTrip }: Props) {
         user_id: user.id,
         title: `${theme.name}之旅`,
         destination: theme.destinations[0] || theme.name,
-        description: `${theme.tagline} —— 报名主题后自动生成的行程，可在「我的行程」中编辑详情。`,
+        description: `${theme.tagline} —— 报名主题后自动生成的行程，可在「我的-我的订单」中完成订单支付。`,
         status: 'planning',
         is_public: false,
       });

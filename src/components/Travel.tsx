@@ -25,7 +25,7 @@ import { createOrder } from '../lib/createOrder';
 
 const STATUS_CONFIG = {
   pending_payment: { label: '待付款', icon: Wallet, color: 'bg-amber-100 text-amber-700' },
-  planning: { label: '等管家联系', icon: Clock, color: 'bg-oshiruco-100 text-oshiruco-700' },
+  planning: { label: '待支付', icon: Clock, color: 'bg-oshiruco-100 text-oshiruco-700' },
   active: { label: '进行中', icon: Plane, color: 'bg-emerald-100 text-emerald-700' },
   completed: { label: '已完成', icon: CheckCircle2, color: 'bg-gray-100 text-gray-500' },
 };
@@ -201,7 +201,7 @@ export default function Travel() {
     await supabase.from('theme_registrations').insert({ user_id: user.id, theme_id: regTheme.id, note: regNote });
     await supabase.from('trips').insert({
       user_id: user.id, title: `${regTheme.name}之旅`, destination: regTheme.destinations[0] || regTheme.name,
-      description: regNote ? `${regTheme.tagline}（${regNote}）` : `${regTheme.tagline} —— 报名主题后自动生成的行程，可在「我的行程」中编辑详情。`,
+      description: regNote ? `${regTheme.tagline}（${regNote}）` : `${regTheme.tagline} —— 报名主题后自动生成的行程，可在「我的-我的订单」中完成订单支付。`,
       status: 'planning', is_public: false,
     });
     await createOrder({
@@ -546,7 +546,7 @@ export default function Travel() {
               <div>
                 <label className="block text-sm font-medium text-oshiruco-800 mb-1.5">状态</label>
                 <select value={form.status} onChange={e => setForm({ ...form, status: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-oshiruco-200 focus:border-oshiruco-400 outline-none text-sm bg-white">
-                  <option value="planning">待管家联系</option><option value="active">进行中（出发啦！）</option><option value="completed">已完成</option>
+                  <option value="planning">待支付</option><option value="active">进行中（出发啦！）</option><option value="completed">已完成</option>
                 </select>
               </div>
               <div className="flex items-center gap-3 py-1">

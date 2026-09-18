@@ -12,7 +12,7 @@ interface TripDetailProps {
 }
 
 const STATUS_OPTIONS: { value: Trip['status']; label: string; icon: typeof Clock }[] = [
-  { value: 'planning', label: '待管家联系', icon: Clock },
+  { value: 'planning', label: '待支付', icon: Clock },
   { value: 'active', label: '进行中', icon: Plane },
   { value: 'completed', label: '已完成', icon: CheckCircle2 },
 ];
@@ -137,12 +137,12 @@ export default function TripDetail({ trip, onClose, onUpdated, onDeleted }: Trip
 
             {/* Actions */}
             <div className="flex gap-3">
-              <button
-                onClick={() => setEditing(true)}
-                className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold text-sm flex items-center justify-center gap-1.5 hover:bg-sky-700 transition shadow-sm"
-              >
-                <Save className="w-4 h-4" /> 编辑行程
-              </button>
+              {/*<button*/}
+              {/*  onClick={() => setEditing(true)}*/}
+              {/*  className="flex-1 py-3 rounded-xl bg-sky-600 text-white font-semibold text-sm flex items-center justify-center gap-1.5 hover:bg-sky-700 transition shadow-sm"*/}
+              {/*>*/}
+              {/*  <Save className="w-4 h-4" /> 编辑行程*/}
+              {/*</button>*/}
               <button
                 onClick={() => setConfirmDelete(true)}
                 className="flex-1 py-3 rounded-xl border border-rose-200 text-rose-600 font-semibold text-sm flex items-center justify-center gap-1.5 hover:bg-rose-50 transition"
